@@ -50,18 +50,21 @@ public class MainActivity extends AppCompatActivity {
         // Find the View that shows the family category
         TextView family = (TextView) findViewById(R.id.family);
 
-        // Set a click listener on that View
-        family.setOnClickListener(new OnClickListener() {
-            // The code in this method will be executed when the family category is clicked on.
-            @Override
-            public void onClick(View view) {
-                // Create a new intent to open the {@link FamilyActivity}
-                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+        FamilyListener familyListener = new FamilyListener();
+        family.setOnClickListener(familyListener);
 
-                // Start the new activity
-                startActivity(familyIntent);
-            }
-        });
+//        // Set a click listener on that View
+//        family.setOnClickListener(new OnClickListener() {
+//            // The code in this method will be executed when the family category is clicked on.
+//            @Override
+//            public void onClick(View view) {
+//                // Create a new intent to open the {@link FamilyActivity}
+//                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+//
+//                // Start the new activity
+//                startActivity(familyIntent);
+//            }
+//        });
 
         // Find the View that shows the colors category
         TextView colors = (TextView) findViewById(R.id.colors);

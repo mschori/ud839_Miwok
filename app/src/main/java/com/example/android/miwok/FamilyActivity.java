@@ -17,6 +17,10 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class FamilyActivity extends AppCompatActivity {
 
@@ -24,5 +28,36 @@ public class FamilyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_family);
+
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Hallo");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+        list.add("Tschüss");
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+
+        ListView listView = (ListView) findViewById(R.id.family_list);
+        listView.setAdapter(arrayAdapter);
     }
 }
