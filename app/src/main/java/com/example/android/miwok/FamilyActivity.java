@@ -15,10 +15,13 @@
  */
 package com.example.android.miwok;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -29,35 +32,21 @@ public class FamilyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_family);
 
-        ArrayList<String> list = new ArrayList<>();
-        list.add("Hallo");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
-        list.add("Tschüss");
+        ArrayList<Word> list = new ArrayList<>();
+        list.add(new Word("Hey", "DU", R.drawable.ic_launcher));
+        list.add(new Word("Hey", "DU", R.drawable.mario));
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+        WordAdapter wordAdapter = new WordAdapter(this, list);
 
         ListView listView = (ListView) findViewById(R.id.family_list);
-        listView.setAdapter(arrayAdapter);
+        listView.setAdapter(wordAdapter);
+
+        // play sound
+        AudioManager audioManager = (AudioManager) getSystemService(this.AUDIO_SERVICE);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 5, 0);
+
+        MediaPlayer mPlayer2;
+        mPlayer2= MediaPlayer.create(this, R.raw.jump_09);
+        mPlayer2.start();
     }
 }
